@@ -1,6 +1,7 @@
 package com.example.productserviceworkshop.models;
 
 
+import com.example.productserviceworkshop.dtos.ProductDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,4 +21,13 @@ public class Product {
     private String image;
     private double price;
     private int inventoryCount;
+
+    public ProductDto from(Product product) {
+        ProductDto productDto = new ProductDto();
+        productDto.setTitle(product.getTitle());
+        productDto.setDescription(product.getDescription());
+        productDto.setPrice(product.getPrice());
+        productDto.setImage(product.getImage());
+        return productDto;
+    }
 }
